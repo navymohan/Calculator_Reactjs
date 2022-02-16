@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 function App() {
 	const listOfOperators = ['+', '-', '*', '/', '.', '**'];
-	// let temp = 0;
+
 	const [calculationString, setCalculationString] = useState("");
 	const [result, setResult] = useState("");
 
@@ -24,10 +24,6 @@ function App() {
 			setResult(eval(calculationString + value).toString());
 		}
 	}
-
-	// const emptyResult = () => {
-	// 	setResult('');
-	// }
 
 	// Function for equals to button
 	const equalsFunction = () => {
