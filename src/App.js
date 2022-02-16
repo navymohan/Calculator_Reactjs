@@ -1,8 +1,8 @@
 import {useState} from 'react'
 
 function App() {
-	const listOfOperators = ['+', '-', '*', '/', '.'];
-
+	const listOfOperators = ['+', '-', '*', '/', '.', '**'];
+	// let temp = 0;
 	const [calculationString, setCalculationString] = useState("");
 	const [result, setResult] = useState("");
 
@@ -16,12 +16,18 @@ function App() {
 		}
 		// If there is no problem with the calculation string then update the string
 		setCalculationString(calculationString+value);
+		console.log(calculationString);
 
 		// For evaluation of the string using eval function
 		if(!listOfOperators.includes(value)){
+			// setResult(Function("return "+calculationString + value).toString());
 			setResult(eval(calculationString + value).toString());
 		}
 	}
+
+	// const emptyResult = () => {
+	// 	setResult('');
+	// }
 
 	// Function for equals to button
 	const equalsFunction = () => {
@@ -56,6 +62,7 @@ function App() {
 		}
 		return digits;
 	}
+
   return (
     <div className="App">
     	<div className="calculator">
@@ -65,7 +72,8 @@ function App() {
 			{/* Div for the display of the calculator */}
 			<div className="screen">
 				{/* If result is not null then span otherwise empty string */}
-				{result ? <span>({result})</span> : ''} {calculationString || "0"}
+				{/* {result ? <span>({result})</span> : ''} */}
+				{calculationString || "0"}
 			</div>
 			{/* Div for the operators */}
 			<div className="operators">
@@ -73,6 +81,20 @@ function App() {
 				<button onClick={() => updateCalculationString('-')}>-</button>
 				<button onClick={() => updateCalculationString('*')}>*</button>
 				<button onClick={() => updateCalculationString('/')}>/</button>
+				<button onClick={() => updateCalculationString('**')}>^</button>
+				<button onClick={() => updateCalculationString('(')}>(</button>
+				<button onClick={() => updateCalculationString(')')}>)</button>
+				<button onClick={() => updateCalculationString('Math.PI')}>π</button>
+				<button onClick={() => updateCalculationString('Math.E')}>e</button>
+				<button onClick={() => updateCalculationString('Math.sqrt')}>√</button>
+				<button onClick={() => updateCalculationString('Math.log')}>ln</button>
+				<button onClick={() => updateCalculationString('Math.log10')}>log</button>
+				<button onClick={() => updateCalculationString('Math.sin')}>sin</button>
+				<button onClick={() => updateCalculationString('Math.cos')}>cos</button>
+				<button onClick={() => updateCalculationString('Math.tan')}>tan</button>
+				<button onClick={() => updateCalculationString('Math.asin')}>sin<sup>-1</sup></button>
+				<button onClick={() => updateCalculationString('Math.acos')}>cos<sup>-1</sup></button>
+				<button onClick={() => updateCalculationString('Math.atan')}>tan<sup>-1</sup></button>
 				<button onClick={clearFunction}>CLEAR</button>
 			</div>
 			{/* Div for the digits */}
