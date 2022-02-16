@@ -1,0 +1,101 @@
+:root{
+	/* Defining general variabls */
+	--color1: #0d6d50;
+	--color2: #5ac73f;
+	--color3: #0c295c;
+	--color4: #eee;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lucida Console', monospace;
+}
+
+body{
+	background-color: var(--color4);
+}
+
+.App{
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.calculator{
+	width: 100%;
+	max-width: 400px;
+	background-color: var(--color4);
+	overflow: hidden;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000;
+}
+
+.heading{
+	padding: 16px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000;
+	background-color: var(--color4);
+	text-align: center;
+	font-size: 30px;
+}
+
+.screen{
+	padding: 16px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000;
+	text-align: right;
+	background-color: var(--color4);
+	color: #000;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.screen span{
+	font-size: 14px;
+	color: #404040;
+}
+
+button{
+	appearance: none;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #fff;
+	outline: none;
+	color: #000;
+	padding: 16px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+button:hover{
+	opacity: 0.8;
+}
+
+.operators{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.operators button{
+	flex: 1 1 0%;
+	background-color: #a0a0a0;
+	color: #000;
+	font-weight: 800;
+}
+
+.digits{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.digits button{
+	flex: 1 1 33%;
+	background-color: #000;
+	color: #fff;
+}
